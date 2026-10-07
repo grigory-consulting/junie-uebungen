@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.devadze.junie</groupId>
+    <artifactId>junie-uebungen</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Junie-Übungen</name>
+
+    <properties>
+        <maven.compiler.release>21</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--
+            Die Tests der Übung 3 sind absichtlich rot und tragen das JUnit-Tag "ue3".
+            Der normale Lauf "mvn test" schließt sie aus, damit alle anderen Übungen grün bauen.
+            "mvn test -Dgroups=ue3" aktiviert das Profil "ue3" und führt nur diese Tests aus.
+        -->
+        <tests.ausgeschlossen>ue3</tests.ausgeschlossen>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.11.4</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.2</version>
+                <configuration>
+                    <excludedGroups>${tests.ausgeschlossen}</excludedGroups>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <!-- Greift automatisch, sobald -Dgroups=... gesetzt ist: dann wird nichts ausgeschlossen. -->
+            <id>ue3</id>
+            <activation>
+                <property>
+                    <name>groups</name>
+                </property>
+            </activation>
+            <properties>
+                <tests.ausgeschlossen></tests.ausgeschlossen>
+            </properties>
+        </profile>
+    </profiles>
+</project>
