@@ -2,7 +2,7 @@
 
 Übungsprojekt zur Schulung „JetBrains Junie: KI-unterstützte Code Generierung für Entwickler“. Sie lösen die Übungen mit Junie im AI Chat von IntelliJ IDEA.
 
-**Folien:** [grigory-consulting.github.io/junie-uebungen](https://grigory-consulting.github.io/junie-uebungen/) (im Browser, Pfeiltasten oder Leertaste zum Blättern, `Esc` für die Übersicht)
+**Folien:** [grigory-consulting.github.io/junie-uebungen](https://grigory-consulting.github.io/junie-uebungen/) (im Browser, Pfeiltasten oder Leertaste zum Blättern, `Esc` für die Übersicht), als PDF: [slides/junie.pdf](slides/junie.pdf)
 
 ## Öffnen und prüfen
 
